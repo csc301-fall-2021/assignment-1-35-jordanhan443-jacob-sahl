@@ -8,6 +8,6 @@ router.register(r'items', views.ItemView, 'item')
 urlpatterns = [
     path('', views.index, name='index'),
     path('calculate/', views.calculate, name='calculate'),
-    # path('api/', views.ItemView, 'item'),
+    # path('api/', views.ItemView, name='item'),
     path('api/', include(router.urls)),
 ]
