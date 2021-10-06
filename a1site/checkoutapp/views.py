@@ -15,7 +15,6 @@ def calculate(request):
     pass
 
 # Create your views here.
-
 class ItemView(viewsets.ModelViewSet):
     serializer_class = ItemSerializer
     queryset = Item.objects.all()
