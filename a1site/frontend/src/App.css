@@ -1,0 +1,41 @@
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.add {
+  color: green;
+}
+
+.remove {
+  color: red;
+}
+
+inventory {
+  width: 40%;
+  margin: 5%;
+  float: left;
+  background-color: white;
+}
+
+cart {
+  width: 40%;
+  margin: 5%;
+  float: right;
+  background-color: white;
+}
+
+table-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+empty-cart {
+  width: 100%;
+  font-style: italic;
+  text-align: center;
+}
