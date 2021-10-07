@@ -9,6 +9,7 @@ class App extends Component {
       viewCompleted: false,
       items: [],
       cartItems: [],
+      discounted: false,
     }
   }
 
@@ -54,8 +55,8 @@ class App extends Component {
             {items.map((item) => (
               <tr>
                 <th scope="row">{item.item_name}</th>
-                <td>{item.item_price}</td>
-                <td>{item.tax_rate}</td>
+                <td>{item.item_price.toFixed(2)}</td>
+                <td>{(item.tax_rate)*100}%</td>
                 <td>
                   <button class="add" onClick={() => this.addItemToCart(item)}>
                     <i class="far fa-plus-square"></i>
@@ -123,8 +124,8 @@ class App extends Component {
             {cart.map((item) => (
               <tr>
                 <th scope="row">{item.item.item_name}</th>
-                <td>{item.item.item_price}</td>
-                <td>{item.item.tax_rate}</td>
+                <td>{item.item.item_price.toFixed(2)}</td>
+                <td>{(item.item.tax_rate)*100}%</td>
                 <td>{item.count}</td>
                 <td>
                   <button class="remove" onClick={() => this.removeItemFromCart(item)}>
@@ -136,7 +137,29 @@ class App extends Component {
           </tbody>
         </table>
         {this.checkEmptyCart()}
+        {this.renderTotal()}
       </cart>
+    )
+  }
+
+  renderTotal = () => {
+    const cart = this.state.cartItems;
+    let total = 0;
+    for (let i = 0; i < cart.length; i++) {
+      total += (cart[i].item.item_price * (cart[i].item.tax_rate + 1) * cart[i].count);
+    }
+    if (this.state.discounted) {
+      total *= 0.9;
+    }
+    return (
+      <total>
+        <span>
+          Checkout Total: 
+        </span>
+        <span>
+          {parseFloat(total).toFixed(2)}
+        </span>
+      </total>
     )
   }
 
@@ -150,13 +173,34 @@ class App extends Component {
         </empty-cart>
       )
     }
-  } 
+  }
+
+  toggleDiscount = () => {
+    this.setState({ discounted: !this.state.discounted });
+    const discount = document.querySelector('discount');
+    if (!this.state.discounted) {
+      discount.style.backgroundColor = "gold";
+    } else {
+      discount.style.backgroundColor = "grey";
+    }
+  }
+
+  renderDiscountButton = () => {
+    return (
+      <discount>
+        <button onClick={() => this.toggleDiscount(0.9)}>
+          <i class="fas fa-tags"></i>
+        </button>
+      </discount>
+    )
+  }
 
   render() {
     return (
       <main>
         {this.renderInventory()}
         {this.renderCart()}
+        {this.renderDiscountButton()}
       </main>
     )
   }
