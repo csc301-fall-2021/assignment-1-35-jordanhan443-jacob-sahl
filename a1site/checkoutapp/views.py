@@ -5,11 +5,7 @@ from rest_framework import viewsets
 from .serializers import ItemSerializer
 
 def index(request):
-    test_bool = False
-    context = {
-        'test_bool': test_bool,
-    }
-    return render(request, 'checkoutapp/index.html', context)
+    return render(request, "build/index.html")
 
 def calculate(request):
     pass
