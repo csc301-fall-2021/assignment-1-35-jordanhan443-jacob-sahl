@@ -1,7 +1,31 @@
-# python env
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# database
+db.sqlite3
+
+# python
+__pycache__/
+venv/
 env/
 
+# dependencies
+node_modules
+/.pnp
+.pnp.js
 
-# django
-__pycache__
-db.sqlite3
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
