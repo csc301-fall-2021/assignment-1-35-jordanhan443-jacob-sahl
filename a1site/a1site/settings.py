@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-($qj(+m%lx!^hx5l8)3an^0x15&24pf(eovg^ws+%zh0uez5%p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['checkout-dev.ca-central-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = [
+    'checkout-dev.ca-central-1.elasticbeanstalk.com',
+    '127.0.0.1']
 
 
 # Application definition
@@ -65,7 +67,7 @@ ROOT_URLCONF = 'a1site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend')], # Root folder of frontend
+        'DIRS': [os.path.join(BASE_DIR, '')], # Root folder of frontend (NOTE: Jordan put frontend files in root dir)
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,7 +132,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'frontend', "build", "static"),  # update the STATICFILES_DIRS
+    os.path.join(BASE_DIR, "build", "static"),  # update the STATICFILES_DIRS
 )
 
 # Default primary key field type
