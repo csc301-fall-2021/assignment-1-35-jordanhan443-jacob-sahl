@@ -69,7 +69,7 @@ ROOT_URLCONF = 'a1site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend')], # Root folder of frontend
+        'DIRS': [os.path.join(BASE_DIR, '')], # Root folder of frontend (NOTE: Jordan put frontend files in root dir)
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,7 +134,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'frontend', "build", "static"),  # update the STATICFILES_DIRS
+    os.path.join(BASE_DIR, "build", "static"),  # update the STATICFILES_DIRS
 )
 
 # Default primary key field type
