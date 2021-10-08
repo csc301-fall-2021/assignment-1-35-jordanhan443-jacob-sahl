@@ -35,14 +35,14 @@ class App extends Component {
   renderInventory = () => {
     const items = this.state.items;
     return (
-      <inventory>
-        <table-header>
+      <div className='inventory'>
+        <div className='table-header'>
           <h1>Store Inventory</h1>
           <h1>
-            <i class="fas fa-warehouse"></i>
+            <i className="fas fa-warehouse"></i>
           </h1>
-        </table-header>
-        <table class="table table-striped table-dark table-hover">
+        </div>
+        <table className="table table-striped table-dark table-hover">
           <thead>
             <tr>
               <th scope="col">Item Name</th>
@@ -58,15 +58,15 @@ class App extends Component {
                 <td>{item.item_price.toFixed(2)}</td>
                 <td>{(item.tax_rate)*100}%</td>
                 <td>
-                  <button class="add" onClick={() => this.addItemToCart(item)}>
-                    <i class="far fa-plus-square"></i>
+                  <button className="add" onClick={() => this.addItemToCart(item)}>
+                    <i className="far fa-plus-square"></i>
                   </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </inventory>
+      </div>
     )
   }
 
@@ -103,14 +103,14 @@ class App extends Component {
   renderCart = () => {
     const cart = this.state.cartItems;
     return (
-      <cart>
-        <table-header>
+      <div className='cart'>
+        <div className='table-header'>
           <h1>Your Shopping Cart</h1>
           <h1>
-            <i class="fas fa-shopping-cart"></i>
+            <i className="fas fa-shopping-cart"></i>
           </h1>
-        </table-header>
-        <table class="table table-striped table-dark table-hover">
+        </div>
+        <table className="table table-striped table-dark table-hover">
           <thead>
             <tr>
               <th scope="col">Item Name</th>
@@ -128,8 +128,8 @@ class App extends Component {
                 <td>{(item.item.tax_rate)*100}%</td>
                 <td>{item.count}</td>
                 <td>
-                  <button class="remove" onClick={() => this.removeItemFromCart(item)}>
-                    <i class="far fa-minus-square"></i>
+                  <button className="remove" onClick={() => this.removeItemFromCart(item)}>
+                    <i className="far fa-minus-square"></i>
                   </button>
                 </td>
               </tr>
@@ -138,7 +138,7 @@ class App extends Component {
         </table>
         {this.checkEmptyCart()}
         {this.renderTotal()}
-      </cart>
+      </div>
     )
   }
 
@@ -152,25 +152,25 @@ class App extends Component {
       total *= 0.9;
     }
     return (
-      <total>
+      <div className ="total">
         <span>
           Checkout Total: 
         </span>
         <span>
           {parseFloat(total).toFixed(2)}
         </span>
-      </total>
+      </div>
     )
   }
 
   checkEmptyCart = () => {
     if (this.state.cartItems.length === 0) {
       return (
-        <empty-cart>
+        <div className='empty-cart'>
           <p>
             Your cart is empty
           </p>
-        </empty-cart>
+        </div>
       )
     }
   }
@@ -187,21 +187,21 @@ class App extends Component {
 
   renderDiscountButton = () => {
     return (
-      <discount>
+      <div className='discount'>
         <button onClick={() => this.toggleDiscount(0.9)}>
-          <i class="fas fa-tags"></i>
+          <i className="fas fa-tags"></i>
         </button>
-      </discount>
+      </div>
     )
   }
 
   render() {
     return (
-      <main>
+      <div className='main'>
         {this.renderInventory()}
         {this.renderCart()}
         {this.renderDiscountButton()}
-      </main>
+      </div>
     )
   }
 }
