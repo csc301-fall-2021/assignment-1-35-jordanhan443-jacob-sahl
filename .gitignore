@@ -1,7 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# database
+db.sqlite3
+
 # python
-/env
+__pycache__/
+venv/
+env/
 
 # dependencies
 /node_modules
