@@ -177,7 +177,7 @@ class App extends Component {
 
   toggleDiscount = () => {
     this.setState({ discounted: !this.state.discounted });
-    const discount = document.querySelector('discount');
+    const discount = document.querySelector('.discount');
     if (!this.state.discounted) {
       discount.style.backgroundColor = "gold";
     } else {
