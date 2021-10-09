@@ -33,5 +33,4 @@ jobs:
         node-version: "12"
 
     - name: React Test
-      run: npm i
       run: npm test
