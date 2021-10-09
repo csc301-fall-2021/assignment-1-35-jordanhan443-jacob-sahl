@@ -28,6 +28,7 @@ SECRET_KEY = 'django-insecure-($qj(+m%lx!^hx5l8)3an^0x15&24pf(eovg^ws+%zh0uez5%p
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'our-checkout-app.herokuapp.com'
     'checkout-dev.ca-central-1.elasticbeanstalk.com',
     '127.0.0.1',
     'localhost',
